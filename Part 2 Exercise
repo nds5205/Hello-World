@@ -1,0 +1,53 @@
+size(500,500);
+smooth();
+strokeWeight(1);
+background(240,75,75);
+
+//Body
+fill(0,0,0);
+ellipse(250,250,250,125);
+  //Mark
+  beginShape();
+  stroke(225,0,0);
+  fill(225,0,0);
+  vertex(175,225);
+  vertex(175,275);
+  vertex(200,250);
+  vertex(225,275);
+  vertex(225,225);
+  vertex(200,250);
+  vertex(175,225);
+  endShape();
+
+//Head
+stroke(0,0,0);
+fill(0,0,0);
+ellipse(400,225,125,75);
+  //Eyes
+  fill(160,250,250);
+  ellipse(425,235,10,10);
+  ellipse(415,225,10,10);
+  ellipse(435,225,10,10);
+  ellipse(425,215,10,10);
+  //Mouth
+  strokeWeight(10);
+  fill(0,0,0);
+  beginShape();
+  vertex(440,240);
+  vertex(460,250);
+  vertex(420,250);
+  endShape();
+
+//Legs
+  //Leg1
+  line(175,300,150,350);
+  line(150,350,150,400);
+  //Leg2
+  line(225,300,215,350);
+  line(215,350,215,400);
+  //Leg3
+  line(275,300,285,350);
+  line(285,350,285,400);
+  //Leg4
+  line(325,300,350,350);
+  line(350,350,350,400);
