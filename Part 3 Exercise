@@ -1,0 +1,128 @@
+float x = 250;
+float y = 250;
+int red = 1;
+int blue = 0;
+int green = 0;
+int x1 = 175;
+int x2 = 165;
+int x3 = 185;
+int y1 = 15;
+int y2 = 25;
+int y3 = 35;
+
+void setup() {
+  size(500,500);
+}
+
+void draw() {
+  background(240,75,75);
+  
+  //Body
+  smooth();
+  strokeWeight(1);
+  fill(0,0,0);
+  ellipse(x,y,250,125);
+  
+  //Mark
+  beginShape();
+  if (red == 1) {
+    fill (225, 0, 0);
+    stroke (225, 0, 0);
+  }
+  else if (blue == 1) {
+    fill (0, 225, 0);
+    stroke (0, 225, 0);
+  }
+  else if (green == 1) {
+    fill (0, 0, 225);
+    stroke (0, 0, 225);
+  }
+  vertex(x-75,y-25);
+  vertex(x-75,y+25);
+  vertex(x-50,y);
+  vertex(x-25,y+25);
+  vertex(x-25,y-25);
+  vertex(x-50,y);
+  vertex(x-75,y-25);
+  endShape();
+  
+  //Head
+  stroke(0,0,0);
+  fill(0,0,0);
+  ellipse(x+150,y-25,125,75);  
+  eyes();
+    //Mouth
+    strokeWeight(10);
+    fill(0,0,0);
+    beginShape();
+    vertex(x+190,y-10);
+    vertex(x+210,y);
+    vertex(x+170,y);
+    endShape();
+  
+  //Legs
+    //Leg1
+    line(x-75,y+50,x-100,y+100);
+    line(x-100,y+100,x-100,y+150);
+    //Leg2
+    line(x-25,y+50,x-35,y+100);
+    line(x-35,y+100,x-35,y+150);
+    //Leg3
+    line(x+25,y+50,x+35,y+100);
+    line(x+35,y+100,x+35,y+150);
+    //Leg4
+    line(x+75,y+50,x+100,y+100);
+    line(x+100,y+100,x+100,y+150);
+}
+
+void keyPressed() {
+ if (key == '1') {
+   red = 1;
+   blue = 0;
+   green = 0;
+ }
+ if (key == '2') {
+   red = 0;
+   blue = 1;
+   green = 0;
+ }
+ if (key == '3') {
+   red = 0;
+   blue = 0;
+   green = 1;
+ }
+ if (key == 'a') {
+    x -= 10;
+    x1 -= 10;
+    x2 -= 10;
+    x3 -= 10;
+  }
+  if (key == 'd') {
+    x += 10;
+    x1 += 10;
+    x2 += 10;
+    x3 += 10;
+  }
+  if (key == 'w') {
+    y -= 10;
+    y1 += 10;
+    y2 += 10;
+    y3 += 10;
+  }
+  if (key == 's') {
+    y += 10;
+    y1 -= 10;
+    y2 -= 10;
+    y3 -= 10;
+  }
+}
+
+void eyes() {
+  float eyesX = map(mouseX, 0, width, 230, 250);
+  float eyesY = map(mouseY, 0, width/2, 235, 240);
+  fill(160,250,250);
+  ellipse(x1+eyesX,eyesY-y1,10,10);
+  ellipse(x2+eyesX,eyesY-y2,10,10);
+  ellipse(x3+eyesX,eyesY-y2,10,10);
+  ellipse(x1+eyesX,eyesY-y3,10,10);
+}
